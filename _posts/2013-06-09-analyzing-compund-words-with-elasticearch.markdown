@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Analyzing compound words with elasticearch"
+title:  "Analyzing compound words with elasticsearch"
 date:   2013-06-09 09:17:30
 categories: elasticsearch
 ---
@@ -19,28 +19,27 @@ Since Swedish is my first language I will do the example in swedish. Should work
 In elasticsearch the lucene `DictionaryCompoundWordTokenFilter` maps directly to `dictionary_decompounder` which have can take a number of parameters. One of these are `word_list` which we will use in the example to provide a list of words. First we need to create a index that supports the use of this `TokenFilter`. I have a settings file that looks like this:
 {%highlight json%}
 {
-    "settings": {
+    "settings" : {
         "index": {
             "number_of_shards": 1,
             "number_of_replicas": 0
         },
         "analysis": {
             "analyzer": {
-                "marcusswedish": {
-                    "type": "custom",
-                    "tokenizer": "standard",
-                    "filter": [
-                        "swedishTokenFilter"
-                    ]
+                "marcusswedish" :{
+                    "type" : "custom",
+                    "tokenizer" : "standard",
+                    "filter" : ["swedishTokenFilter"]
                 }
+
             },
             "filter": {
-                "swedishTokenFilter": {
-                    "type": "dictionary_decompounder",
-                    "word_list": "[fot, boll, lag]",
-                    "min_subword_size": 3
+                "swedishTokenFilter" : {
+                    "type" : "dictionary_decompounder",
+                    "word_list" : ["fotboll", "fot", "lag", "boll"],
+                    "min_subword_size" : 2
                 }
-            }
+            }            
         }
     }
 }
