@@ -5,7 +5,7 @@ title: mgranstrom.com
 
 <div id="home">
   	<h1>mgranstrom.com</h1>
-  	<p>My name is Marcus Granström and I am a software engineer working for EPiServer. I work mostly with distributed stuff including elasticsearch, lucene, Cassandra and also do some work with node.js. I try to contribute to elasticsearch and lucene as well. </p>
+  	<p>My name is Marcus Granström and I am a software engineer working for <a href="http://www.klarna.com">Klarna</a>. I am a team lead at Klarna and my team is part of the payments domain and handles incoming and outgoing payments for Klarna. </p>
 
 <p>I am one of the co-founders of 200OK AB that built the search service Truffler based on elasticsearch. 200OK was acquired by <a href="http://www.episerver.com/about-us/pressroom/press-release-archive-2012/EPiServer-Acquires-200OK-AB-an-Enterprise-Search-Solution-Provider/">EPiServer in May 2012</a> and the product rebranded as <a href="http://find.episerver.com">EPiServer Find</a>. My co-founders are <a href="http://joelabrahamsson.com">Joel Abrahamsson</a> and <a href="http://www.lindstromhenrik.com">Henrik Lindström</a>.</p>
 
@@ -20,10 +20,10 @@ You can find me on twitter as <a href="http://twitter.com/pecke01">@pecke01</a>.
     			</li>
   		{% endfor %}
 	</ul>
-  {% for tag in site.categories %} 
+  {% for tag in site.categories %}
   <h2 id="{{ tag[0] }}">{{ tag[0] }}:</h2>
   <ul class="post-list">
-    {% assign pages_list = tag[1] %}  
+    {% assign pages_list = tag[1] %}
     {% for post in pages_list %}
       {% if post.title != null %}
       {% if group == null or group == post.group %}
