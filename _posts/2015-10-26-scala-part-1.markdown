@@ -1,0 +1,32 @@
+---
+layout: post
+title:  "Scala tutorial part 1"
+date:   2015-10-26
+categories: scala
+---
+
+Since I started working for Klarna almost five months ago I have started working more and more in scala. I will in a series of blogs around scala explain how to get started with scala and what to think about when using it. I will expect you to be knowledge with programming.
+
+I will give instructions and examples from how I use do it on os x. Should align with linux as well.
+
+##Installing Scala
+Head over to [Download scala](http://www.scala-lang.org/download/) and download the latest version. When writing this it is 2.11.7. Unpack it and place it in ``/usr/local/share/scala-2.11.7``.
+Add the following lines to your .bashrc or for me .zshrc since I run zsh.
+{%highlight bash%}
+export SCALA_HOME=/usr/local/share/scala-2.11.7
+export PATH=$PATH:$SCALA_HOME/bin
+{% endhighlight %}
+You are now able to compile ``scalac`` and run programs with ``scala`` from your terminal.
+
+##First steps
+Creating a program that we can run by compiling and doing ``scala first.scala``. For that we need a main method. We are also going to print something on the console out.
+Create a file called first.scala and place the following in it.
+{%highlight java%}
+object ScalaPartOne {
+  def main(args: Array[String]){
+    println("Scala Part One")
+  }
+}
+{% endhighlight %}
+
+You should now be able to run the very simple program by running ``scala first.scala`` in the terminal and it will print ``"Scala Part One"``
